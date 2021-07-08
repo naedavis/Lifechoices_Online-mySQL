@@ -36,13 +36,10 @@ def draw_admin():
                    year=year, month=month,
                    day=day)
     cal.place(x=50, y=250, width=250, height=200)
-    lbl_detailsOf = Label(admin, text="Showing Details of:", fg="#206F3D", bg="#EBFFEC", font="Arial 15 bold")
-    lbl_detailsOf.place(x=50, y=480)
+    # lbl_detailsOf = Label(admin, text="Showing Details of:", fg="#206F3D", bg="#EBFFEC", font="Arial 15 bold")
+    # lbl_detailsOf.place(x=50, y=480)
 
     def search():
-        def back_search():
-            admin.destroy()
-            import main
 
         lbl_title.config(text="")
         lbl_admin.config(text="")
@@ -89,8 +86,8 @@ def draw_admin():
         cursor.execute("select "
                        " max(Date) Date,max(ID_No) ID_No, Name,"
                        " if(In_Out = 1, 'Signed In', 'Signed Out') Sign_In_Out, max(Time) Time"
-                       " from SignInOutTable where In_Out = 1 and Date=curdate() and Time>Time"
-                       " group by Date, Name ")
+                       " from SignInOutTable where In_Out = 1 and Date=curdate()"
+                       " group by Date, Name;")
 
         tree = ttk.Treeview(admin)
         tree['show'] = "headings"  # otherwise there's going to be an empty first row(don't know why)
@@ -132,7 +129,7 @@ def draw_admin():
                        " max(Date) Date,max(ID_No) ID_No, max(Name) Name,"
                        " if(In_Out = 1, 'Signed In', 'Signed Out') Sign_In_Out, max(Time) Time"
                        " from SignInOutTable where In_Out = 0 and Date=curdate()"
-                       "group by Time")
+                       "group by Time;")
 
         tree = ttk.Treeview(admin)
         tree['show'] = "headings"  # otherwise there's going to be an empty first row(don't know why)
@@ -202,15 +199,16 @@ def draw_admin():
     img_g = Label(bg="white", border="0", image=test_g)
     img_g.image = test_g
     img_g.place(x=50, y=640, width=50, height=50)
-    lbl_g = Button(admin, highlightthickness=0, text="15", fg="white", bd="0", font="Arial 20 bold", bg="#a8d484")
+    lbl_g = Button(admin, highlightthickness=0, text="", fg="white", bd="0", font="Arial 20 bold", bg="#a8d484")
     lbl_g.place(x=60, y=650, width=30, height=30)
     lbl_active = Label(admin, text="Users Signed In", fg="#206F3D", bg="#EBFFEC", font="Arial 20 bold")
     lbl_active.place(x=110, y=650)
-
+    btn_edit =  Button(admin, text="Edit Table", bg="grey", fg="#EBFFEC", font="Arial 25 bold")
+    btn_edit.place(x=570, y=200, width=200)
     btn_insert = Button(admin, text="Insert", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=exitApplication)
-    btn_insert.place(x=570, y=720, width=200)
+    btn_insert.place(x=570, y=570, width=200)
     btn_exit = Button(admin, text="Delete", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=exitApplication)
-    btn_exit.place(x=570, y=720, width=200)
+    btn_exit.place(x=570, y=600, width=200)
     for n in cursor:
         lbl_g.config(text=n)
 

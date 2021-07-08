@@ -106,6 +106,7 @@ def draw_register():
         e_nextok_contactno.delete(0, END)
         e_name.focus_set()
 
+
     def exitApplication():
         msg = messagebox.askquestion("EXIT", "Are you sure you want to exit?")
         if msg == "yes":

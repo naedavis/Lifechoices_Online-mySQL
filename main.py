@@ -48,6 +48,7 @@ def draw():
         else:
             pass
 
+
     lbl_title = Label(main, text="Life Choices Online", fg="#71D696", bg="#EBFFEC", font="Purisa 40 bold")
     lbl_title.place(x=100, y=50)
     btn_Sign_in = Button(main, text="Sign In Here", bg="#71D696", fg="#EBFFEC", font="Arial 30 bold", command=signIn)
