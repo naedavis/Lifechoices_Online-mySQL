@@ -32,7 +32,7 @@ def draw_In_Out(In_Out):
                                    password="@Lifechoices1234", database="Lifechoices_Online")
                 cursor = db.cursor()
                 cursor.execute(
-                    "Select * from Registration where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")
+                    "Select * from Register where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")
                 row = cursor.fetchone()
                 if row is None:
                     messagebox.showerror("Error", "Invalid Name or ID")
@@ -58,7 +58,7 @@ def draw_In_Out(In_Out):
                                    password="@Lifechoices1234", database="Lifechoices_Online")
                 cursor = db.cursor()
                 cursor.execute(
-                    "Select * from Registration where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")
+                    "Select * from Register where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")
                 row = cursor.fetchone()
                 if row == None:
                     messagebox.showerror("Error", "Invalid Name or ID")

@@ -53,7 +53,6 @@ def draw_register():
 # FUNCTIONS
 
     def register_now():
-
         if e_name.get() == "" or e_id.get() == "" or e_contact.get() == "" or e_surname.get() == "" or e_nextok_name.get() == "" or e_nextok_contactno.get() == "":
             messagebox.showerror("Error!", "Please fill in ALL fields")
         else:
@@ -83,7 +82,7 @@ def draw_register():
                         e_nextok_contactno.delete(0, END)
                     else:
                         cursor.execute(
-                            "INSERT into Registration values(null,'" + e_name.get() + "','" + e_surname.get() + "','" + e_id.get() + "','" + e_contact.get() + "','" + e_nextok_name.get() + "','" + e_nextok_contactno.get() + "');")
+                            "INSERT into Register values(null,'" + e_name.get() + "','" + e_surname.get() + "','" + e_id.get() + "','" + e_contact.get() + "','" + e_nextok_name.get() + "','" + e_nextok_contactno.get() + "');")
                         db.commit()
                         db.close()
                         msg = messagebox.askquestion("REGISTRATION SUCCESSFUL",
