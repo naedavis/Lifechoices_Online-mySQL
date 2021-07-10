@@ -13,25 +13,17 @@ def draw_admin_register():
     reg_admin.resizable(width=False, height=False)
     reg_admin.title("Life Choices Online")
 
-    lbl_title = Label(reg_admin, text="Life Choices Online", fg="#71D696", bg="#EBFFEC", font="Purisa 40 bold")
-    lbl_title.place(x=110, y=20)
-    lbl_insert = Label(reg_admin, text="Insert / Delete from Register", fg="#71D696", bg="#EBFFEC", font="Purisa 30 bold")
-    lbl_insert.place(x=250, y=130)
-    print("Mona")
-
-    # lbl_title.config(text="")
-    # lbl_insert.config(text="")
-    db = mysql.connect(host="localhost", user="lifechoices",
-                       password="@Lifechoices1234", database="Lifechoices_Online")
+    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                       password="8aQSEf2XsR", database="sql4424128", port="3306")
     cursor = db.cursor()
-    cursor.execute("Select * from Register ORDER BY id ASC")
+    cursor.execute("Select Name, Surname, ID_No, Contact, NextOfKinName, NextOfKinContact from Register")
     tree_insert = ttk.Treeview(reg_admin)
     tree_insert['show'] = "headings"  # otherwise there's going to be an empty first row(don't know why)
     # define number of columns
-    tree_insert["columns"] = ("id", "Name", "Surname", "ID No", "Contact No", "NextOfKin Name", "NextOfKin Contact")
+    tree_insert["columns"] = ( "Name", "Surname", "ID No", "Contact No", "NextOfKin Name", "NextOfKin Contact")
 
     # assigning properties of columns
-    tree_insert.column("id", width=20, minwidth=20, anchor=CENTER)
+
     tree_insert.column("Name", width=50, minwidth=50, anchor=CENTER)
     tree_insert.column("Surname", width=50, minwidth=50, anchor=CENTER)
     tree_insert.column("ID No", width=100, minwidth=100, anchor=CENTER)
@@ -40,7 +32,7 @@ def draw_admin_register():
     tree_insert.column("NextOfKin Contact", width=100, minwidth=100, anchor=CENTER)
 
     # heading names
-    tree_insert.heading("id", text="id")
+    # tree_insert.heading("id", text="id")
     tree_insert.heading("Name", text="Name")
     tree_insert.heading("Surname", text="Surname")
     tree_insert.heading("ID No", text="ID No")
@@ -53,7 +45,7 @@ def draw_admin_register():
     # to be displayed in the treeview diagram in correct order
     i = 0
     for user in cursor:
-        tree_insert.insert('', i, text="", values=(user[0], user[1], user[2], user[3], user[4], user[5], user[6]))
+        tree_insert.insert('', i, text="", values=(user[0], user[1], user[2], user[3], user[4], user[5]))
         i = +1
 
     v_scroll = ttk.Scrollbar(tree_insert, orient="vertical")
@@ -93,17 +85,16 @@ def draw_admin_register():
 ##### FUNCTIONS
 
     def update():
-        db = mysql.connect(host="localhost", user="lifechoices",
-                           password="@Lifechoices1234", database="Lifechoices_Online")
+        db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                           password="8aQSEf2XsR", database="sql4424128", port="3306")
         cursor = db.cursor()
-        cursor.execute("Select * from Register Group BY id")
+        cursor.execute("Select Name, Surname, ID_No, Contact, NextOfKinName, NextOfKinContact from Register")
         tree_insert = ttk.Treeview(reg_admin)
         tree_insert['show'] = "headings"  # otherwise there's going to be an empty first row(don't know why)
         # define number of columns
-        tree_insert["columns"] = ("id", "Name", "Surname", "ID No", "Contact No", "NextOfKin Name", "NextOfKin Contact")
+        tree_insert["columns"] = ("Name", "Surname", "ID No", "Contact No", "NextOfKin Name", "NextOfKin Contact")
 
         # assigning properties of columns
-        tree_insert.column("id", width=20, minwidth=20, anchor=CENTER)
         tree_insert.column("Name", width=50, minwidth=50, anchor=CENTER)
         tree_insert.column("Surname", width=50, minwidth=50, anchor=CENTER)
         tree_insert.column("ID No", width=100, minwidth=100, anchor=CENTER)
@@ -112,7 +103,6 @@ def draw_admin_register():
         tree_insert.column("NextOfKin Contact", width=100, minwidth=100, anchor=CENTER)
 
         # heading names
-        tree_insert.heading("id", text="id")
         tree_insert.heading("Name", text="Name")
         tree_insert.heading("Surname", text="Surname")
         tree_insert.heading("ID No", text="ID No")
@@ -125,14 +115,13 @@ def draw_admin_register():
         # to be displayed in the treeview diagram in correct order
         i = 0
         for user in cursor:
-            tree_insert.insert('', i, text="", values=(user[0], user[1], user[2], user[3], user[4], user[5], user[6]))
+            tree_insert.insert('', i, text="", values=(user[0], user[1], user[2], user[3], user[4], user[5]))
             i = +1
 
         v_scroll = ttk.Scrollbar(tree_insert, orient="vertical")
         v_scroll.configure(command=tree_insert.yview)
         tree_insert.configure(yscrollcommand=v_scroll.set)
         v_scroll.pack(fill=Y, side=RIGHT)
-
         tree_insert.place(x=50, y=70, width=700, height=150)
 
     def insert():
@@ -143,8 +132,8 @@ def draw_admin_register():
                 if len(e_id.get()) != 13 or len(e_contact.get()) != 10 or len(e_nextok_contactno.get()) != 10:
                     print("Invalid Data Type")
                 else:
-                    db = mysql.connect(host="localhost", user="lifechoices",
-                                       password="@Lifechoices1234", database="Lifechoices_Online")
+                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                                       password="8aQSEf2XsR", database="sql4424128", port="3306")
                     cursor = db.cursor()
                     row = cursor.fetchone()
                     if row is not None:
@@ -166,11 +155,37 @@ def draw_admin_register():
             except ValueError as x:
                 messagebox.showerror("ERROR", "Enter Valid Entries")
 
+    def delete():
+        if e_name.get() == "" or e_id.get() == "":
+            messagebox.showerror("Error", "Please fill in BOTH Name and ID fields when deleting")
+        else:
+            try:
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
+                cursor = db.cursor()
+                cursor.execute(
+                    "Select * from Register")
+                row = cursor.fetchone()
+                if row == None:
+                    messagebox.showerror("Error", "Invalid Name or ID")
+                    e_name.delete(0, END)
+                    e_id.delete(0, END)
+                    e_name.focus_set()
+                else:
+                    cursor.execute(
+                        "delete from Register where ID_No='"+e_id.get()+"' and Name='"+e_name.get()+"'")
+                    db.commit()
+                    db.close()
+                    messagebox.showinfo("Successful Deletion",  e_name.get() + ", has been deleted from the Register table " )
+            except ValueError as x:
+                pass
+
+
     btn_update = Button(reg_admin, text="Update", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=update)
     btn_update.place(x=570, y=720, width=200)
     btn_insert = Button(reg_admin, text="Insert", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=insert)
     btn_insert.place(x=570, y=580, width=200)
-    btn_delete = Button(reg_admin, text="Delete", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=None)
+    btn_delete = Button(reg_admin, text="Delete", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=delete)
     btn_delete.place(x=570, y=650, width=200)
 
     reg_admin.mainloop()

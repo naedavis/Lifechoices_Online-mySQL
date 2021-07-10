@@ -28,8 +28,8 @@ def draw_In_Out(In_Out):
             messagebox.showerror("Error", "Please Fill in all fields")
         else:
             try:
-                db = mysql.connect(host="localhost", user="lifechoices",
-                                   password="@Lifechoices1234", database="Lifechoices_Online")
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
                 cursor = db.cursor()
                 cursor.execute(
                     "Select * from Register where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")
@@ -54,8 +54,8 @@ def draw_In_Out(In_Out):
             messagebox.showerror("Error", "Please Fill in all fields")
         else:
             try:
-                db = mysql.connect(host="localhost", user="lifechoices",
-                                   password="@Lifechoices1234", database="Lifechoices_Online")
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
                 cursor = db.cursor()
                 cursor.execute(
                     "Select * from Register where Name='" + e_name.get() + "' and ID_No='" + e_idNo.get() + "'")

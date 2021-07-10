@@ -57,19 +57,11 @@ def draw_register():
             messagebox.showerror("Error!", "Please fill in ALL fields")
         else:
             try:
-                name = str(e_name.get())
-                surname = str(e_surname.get())
-                id = int(e_id.get())
-                contact = int(e_contact.get())
-                nextname = str(e_nextok_name.get())
-                nextcontact = int(e_nextok_contactno.get())
-                # or surname != str or len(e_contact.get()) != 10 or len(e_id.get()) != 13 or nextname != str or len(
-                    # e_nextok_contactno.get()) != 10
                 if len(e_id.get()) != 13 or len(e_contact.get()) != 10 or len(e_nextok_contactno.get()) != 10:
                     print("Invalid Data Type")
                 else:
-                    db = mysql.connect(host="localhost", user="lifechoices",
-                                       password="@Lifechoices1234", database="Lifechoices_Online")
+                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
+                                       password="8aQSEf2XsR", database="sql4424128", port="3306")
                     cursor = db.cursor()
                     row = cursor.fetchone()
                     if row is not None:

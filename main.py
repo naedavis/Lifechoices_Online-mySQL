@@ -62,7 +62,6 @@ def draw():
 
     main.mainloop()
 
-
 if __name__ == '__main__':
 #   function where login style and functions are stored is being called to run
     draw()
