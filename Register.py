@@ -2,7 +2,7 @@
 # Register Screen
 from tkinter import *
 from tkinter import messagebox
-
+import unittest
 import mysql.connector as mysql
 from Sign_In_Out import draw_In_Out
 
@@ -117,6 +117,13 @@ def draw_register():
     btn_exit = Button(register, text="Exit", bg="grey", fg="#EBFFEC", font="Arial 25 bold", command=exitApplication)
     btn_exit.place(x=600, y=820, width=120)
     register.mainloop()
+
+
+
+
+    # class test_register(unittest.TestCase):
+    #     def test_id(self):
+    #         draw_register(register_now(len(e_id.get())=[13]))
 
 if __name__ == '__main__':
     draw_register()
