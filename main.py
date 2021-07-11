@@ -10,7 +10,6 @@ from Sign_In_Out import draw_In_Out
 from Register import draw_register
 from Admin import draw_admin
 
-
 # variable declared outside of the main window function
 # when the user clicks on Sign In the value of In_Out will change to 1
 # when the user clicks on Sign Out it remains the default value of 0

@@ -6,7 +6,6 @@ from tkinter import messagebox
 # import unittest
 import mysql.connector as mysql
 
-
 #   ---FUNCTION THAT HOLDS ALL THE WIDGETS AND FUNCTION OF THE SIGN IN AND OUT WINDOW---
 def draw_In_Out(In_Out):
     sign = Tk()

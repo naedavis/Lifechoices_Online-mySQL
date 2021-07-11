@@ -295,5 +295,6 @@ def draw_admin():
 
     admin.mainloop()
 
+
 if __name__ == '__main__':
     draw_admin()
