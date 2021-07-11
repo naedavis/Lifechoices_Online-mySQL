@@ -145,7 +145,7 @@ def draw_register():
 
     # class test_register(unittest.TestCase):
     #     def test_id(self):
-    #         draw_register(register_now(len(e_id.get())=[13]))
+    #       draw_register(register_now(len(e_id.get())=[13]))
 
 if __name__ == '__main__':
     draw_register()
