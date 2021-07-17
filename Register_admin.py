@@ -14,8 +14,8 @@ def draw_admin_register():
     reg_admin.resizable(width=False, height=False)
     reg_admin.title("Life Choices Online")
     #   ---CONNECTING THE HOSTED DATABASE FOR USE---
-    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                       password="8aQSEf2XsR", database="sql4424128", port="3306")
+    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                       password="uzgsckcuvd", database="sql4426099", port="3306")
     cursor = db.cursor()
 #       QUERY TO DISPLAY * THE RECORDS IN THE REGISTER TABLE
     cursor.execute("Select Name, Surname, ID_No, Contact, NextOfKinName, NextOfKinContact from Register")
@@ -94,8 +94,8 @@ def draw_admin_register():
 #   AFTER SUCCESSFUL INSERTION OF A NEW USER OR DELETION OF A USER, ADMIN IS ABLE TO UPDATE THE TABLE TO SEE THE CHANGES
     def update():
 #       ---CONNECTING THE HOSTED DATABASE FOR USE---
-        db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                           password="8aQSEf2XsR", database="sql4424128", port="3306")
+        db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                           password="uzgsckcuvd", database="sql4426099", port="3306")
         cursor = db.cursor()
 #       QUERY TO DISPLAY * THE RECORDS IN THE REGISTER TABLE
         cursor.execute("Select Name, Surname, ID_No, Contact, NextOfKinName, NextOfKinContact from Register")
@@ -153,8 +153,8 @@ def draw_admin_register():
                     print("Invalid Data Type")
                 else:
 #                   when data meets requirements, it opens up the database
-                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                                       password="8aQSEf2XsR", database="sql4424128", port="3306")
+                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                                        password="uzgsckcuvd", database="sql4426099", port="3306")
                     cursor = db.cursor()
 #                   declaring a variable that fetches each item of data in the database
                     row = cursor.fetchone()
@@ -192,8 +192,8 @@ def draw_admin_register():
         else:
             try:
 #               WHEN DATA MEETS REQUIREMENTS, OPEN HOSTED DATABASE
-                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                   password="uzgsckcuvd", database="sql4426099", port="3306")
                 cursor = db.cursor()
 #               QUERY TO SELECT ALL THE NAMES FROM THE REGISTER
                 cursor.execute(

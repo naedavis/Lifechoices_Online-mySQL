@@ -31,8 +31,8 @@ def draw_In_Out(In_Out):
         else:
             try:
 #               when the data meets the requirements, the databse is opened and we are now able to write queries inside
-                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                   password="uzgsckcuvd", database="sql4426099", port="3306")
                 cursor = db.cursor()
 #               query written to show all the information in the Register table
                 cursor.execute(
@@ -66,8 +66,8 @@ def draw_In_Out(In_Out):
         else:
             try:
 #               when the data meets the requirements, the databse is opened and we are now able to write queries inside
-                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                                   password="8aQSEf2XsR", database="sql4424128", port="3306")
+                db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                           password="uzgsckcuvd", database="sql4426099", port="3306")
                 cursor = db.cursor()
 #               query written to show all the information in the Register table
                 cursor.execute(

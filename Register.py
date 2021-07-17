@@ -70,8 +70,8 @@ def draw_register():
                     print("Invalid Data Type")
                 else:
 #                   when data meets requirements, it opens up the database
-                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                                       password="8aQSEf2XsR", database="sql4424128", port="3306")
+                    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                           password="uzgsckcuvd", database="sql4426099", port="3306")
                     cursor = db.cursor()
 #                   declaring a variable that fetches each item of data in the database
                     row = cursor.fetchone()

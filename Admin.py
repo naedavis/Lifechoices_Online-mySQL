@@ -24,8 +24,8 @@ def draw_admin():
 #   ---END OF HEADING LABELS---
 
 #   ---CONNECTING THE DATABASE HOSTED DATABASE FOR USE---
-    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                       password="8aQSEf2XsR", database="sql4424128", port="3306")
+    db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                       password="uzgsckcuvd", database="sql4426099", port="3306")
     cursor = db.cursor()
 
 #   ---CALENDAR---
@@ -176,8 +176,8 @@ def draw_admin():
         lbl_admin.config(text="")
         btn_search.destroy()
 #   ---CONNECTING THE DATABASE HOSTED DATABASE FOR USE---
-        db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4424128",
-                           password="8aQSEf2XsR", database="sql4424128", port="3306")
+        db = mysql.connect(host="sql4.freesqldatabase.com", user="sql4426099",
+                   password="uzgsckcuvd", database="sql4426099", port="3306")
         cursor = db.cursor()
 #       QUERY TO DISPLAY * THE RECORDS IN THE REGISTER TABLE
         cursor.execute("Select Name, Surname, ID_No, Contact, NextOfKinName, NextOfKinContact , id from Register")
